@@ -19,6 +19,7 @@ typedef struct binary_tree_s
     struct binary_tree_s *left;
     struct binary_tree_s *right;
 } binary_tree_t;
+typedef struct binary_tree_s bst_t;
 
 /**
  * struct link_list - structure for advanced tasks
@@ -33,7 +34,6 @@ typedef struct link_list
 	struct binary_tree_s const *node;
 	struct link_list *next;
 } link_node;
-
 void binary_tree_print(const binary_tree_t *);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -63,5 +63,9 @@ void link_tree_node(link_node **head, const binary_tree_t *tree, size_t value);
 size_t binary_t_depth(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
-
+int left_subtree(const binary_tree_t *node, int max_value);
+int right_subtree(const binary_tree_t *node, int min_value);
+int binary_tree_is_bst(const binary_tree_t *tree);
+bst_t *bst_insert(bst_t **tree, int value);
+bst_t *array_to_bst(int *array, size_t size);
 #endif /* BINARY_TREES_H */
